@@ -120,7 +120,7 @@ public class LinkedList {
 		
 		while(n.linenum <= size ){
 			if(n.data.indexOf(word) != -1){
-				System.out.println("found word on line" + n.linenum);
+				System.out.println("found word on line " + n.linenum);
 				break;
 			}else if(n.linenum < size){
 				n = n.next;

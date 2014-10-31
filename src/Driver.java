@@ -30,9 +30,7 @@ public class Driver {
 		
 		try{
 			BufferedReader indata = new BufferedReader(new InputStreamReader(System.in));
-			
 			line = indata.readLine();
-			
 						
 			while(!line.equals("$done")){
 				
@@ -59,8 +57,7 @@ public class Driver {
 					current = LinkedList.SetLine(Integer.parseInt(command[1]), head);
 					LinkedList.PrintList(Integer.parseInt(command[1]) -1, Integer.parseInt(command[1]) + 1, head);
 					//System.out.println(current.linenum);
-				}else if (command[0].equals("$search")){
-					
+				}else if(command[0].equals("$search")){
 					size = LinkedList.Size(head);
 					LinkedList.Search(head, command[1], size);
 					
@@ -72,9 +69,9 @@ public class Driver {
 			}
 			
 		} catch(Exception e){
-			System.out.println("Error");
+			System.out.println("Error -- " + e.toString());
 		}
-		System.out.println("Program has completed.");
+		System.out.println("Text editor simulation has terminated.");
 	}
 	
 	
