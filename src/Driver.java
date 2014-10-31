@@ -64,6 +64,8 @@ public class Driver {
 					size = LinkedList.Size(head);
 					LinkedList.Search(head, command[1], size);
 					
+				}else {
+					System.out.println(command[0] + " is not a valid command.");
 				}
 				
 				line = indata.readLine();

@@ -7,7 +7,7 @@ public class Node {
     public Node()
     {
     	linenum = 0;
-        data = "";
+        data = null;
         next = null;
     }
 
