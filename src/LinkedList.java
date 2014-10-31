@@ -15,7 +15,7 @@ public class LinkedList {
 		    }
 		    String oneLine;
 		
-	    System.out.println("Please Enter Your Text (Enter $ if you wish to terminate)");
+	    System.out.println("Enter text, enter $ to terminate)");
 	    try
 	    {
 	        BufferedReader indata = new BufferedReader(new InputStreamReader(System.in));   
@@ -128,6 +128,6 @@ public class LinkedList {
 				System.out.println("The word " + word + " was not found.");
 				break;
 			}
-		};
+		}
 	}
 }
