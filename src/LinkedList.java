@@ -48,15 +48,18 @@ public class LinkedList {
 		}
 	}
 	
-	public static void PrintList(int m, int n, Node q){
+	public static void PrintList(int m, int n, Node q, int size){
 		//System.out.println(n);
+		
 		if( m <= n){
 			while(q.next != null && q.linenum != m){
 				q = q.next;
 			}
 			while(m <= n){
-				if(q.next != null){
-					System.out.println(q.linenum + " " + q.data);
+				if(q.linenum <= size){
+					if(q.data != null){
+						System.out.println(q.linenum + " " + q.data);
+					}
 					q = q.next;
 					m++;
 				}else{
@@ -108,26 +111,65 @@ public class LinkedList {
 		return count;
 	}
 
-	public static Node SetLine(int line, Node current) {
-		
-		while(current.linenum != line ){
-			current = current.next;
+	public static Node SetLine(int line, Node current, int size) {
+		if(line <= size){
+			while(current.linenum != line ){
+				current = current.next;
+			}
+		}else{
+			System.out.println("The line number you entered does not exist.");
 		}
 		return current;
 	}
 	
 	public static void Search(Node n, String word, int size){
 		
-		while(n.linenum <= size ){
+		while(n.linenum <= size  ){
 			if(n.data.indexOf(word) != -1){
 				System.out.println("found word on line " + n.linenum);
 				break;
-			}else if(n.linenum < size){
+			}else if(n.linenum < size ){
 				n = n.next;
 			}else{
 				System.out.println("The word " + word + " was not found.");
 				break;
 			}
 		}
+	}
+
+	public static void InsertNodes(Node current) {
+		
+		String oneLine;
+		int lineNum = current.linenum +1;
+		Node q = current.next;
+		System.out.println("Enter text, enter $ to terminate)");
+	    try
+	    {
+	        BufferedReader indata = new BufferedReader(new InputStreamReader(System.in));   
+	        oneLine=indata.readLine();
+	        while(!oneLine.equals("$"))
+	        {
+            	if( current.next == null){
+            		Node p = new Node(lineNum , oneLine, null);
+            		current.next=p;
+            		current=p;
+            		lineNum++;
+            		//size++;
+            		oneLine=indata.readLine();
+            	}else {
+            		Node p = new Node(lineNum , oneLine, null);
+            		current.next = p;
+            		current = p;
+            		lineNum++;
+            		oneLine = indata.readLine();
+            		//q = q.next;
+            	}
+	        }
+	        current.next = q;
+	    }catch (Exception e){
+	    	System.out.println("Error input");
+	    }
+	    //return head;
+		
 	}
 }

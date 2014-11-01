@@ -37,13 +37,21 @@ public class Driver {
 				String[] command = line.split(" ");
 				
 				if(command[0].equals("$insert")){
-					head = LinkedList.BuildList(head);
-					size = LinkedList.Size(head);
-					LinkedList.CleanLine(size, head);
+					
+					if(current.data == null){
+						head = LinkedList.BuildList(head);
+						size = LinkedList.Size(head);
+						LinkedList.CleanLine(size, head);
+					}else {
+						LinkedList.InsertNodes(current);
+						size = LinkedList.Size(head);
+						LinkedList.CleanLine(size, current);
+					}
 				}else if (command[0].equals("$print")){
 					
 					if(command.length == 3){
-						LinkedList.PrintList(Integer.parseInt(command[1]), Integer.parseInt(command[2]), head.next);
+						size = LinkedList.Size(head);
+						LinkedList.PrintList(Integer.parseInt(command[1]), Integer.parseInt(command[2]), head.next, size);
 					}else if(command.length == 1){
 						LinkedList.PrintList(head.next);
 					}else {
@@ -54,12 +62,15 @@ public class Driver {
 					size = LinkedList.Size(head);
 					LinkedList.CleanLine(size, q);
 				}else if(command[0].equals("$line")){
-					current = LinkedList.SetLine(Integer.parseInt(command[1]), head);
-					LinkedList.PrintList(Integer.parseInt(command[1]) -1, Integer.parseInt(command[1]) + 1, head);
-					//System.out.println(current.linenum);
+					size = LinkedList.Size(head);
+					current = LinkedList.SetLine(Integer.parseInt(command[1]), head, size);
+					if(current.data != null){
+						LinkedList.PrintList(Integer.parseInt(command[1]) -1, Integer.parseInt(command[1]) + 1, head, size);
+					}
 				}else if(command[0].equals("$search")){
 					size = LinkedList.Size(head);
-					LinkedList.Search(head, command[1], size);
+					//System.out.println("searching.." + head.data);
+					LinkedList.Search(head.next, command[1], size);
 					
 				}else {
 					System.out.println(command[0] + " is not a valid command.");
