@@ -27,7 +27,6 @@ public class LinkedList {
             		q.next=p;
             		q=p;
             		lineNum++;
-            		//size++;
             		oneLine=indata.readLine();
             	}else {
             		q = q.next;
@@ -39,7 +38,6 @@ public class LinkedList {
 	    return head;
 	    
 	}
-	//create insert method to add new list nodes in the middle of the list...
 
 	public static void PrintList(Node n) {
 		if(n != null){
@@ -48,24 +46,24 @@ public class LinkedList {
 		}
 	}
 	
-	public static void PrintList(int m, int n, Node q, int size){
-		//System.out.println(n);
+	public static void PrintList(int m, int n, Node q){
 		
 		if( m <= n){
+			if(m == 0){
+				m++;
+			}
 			while(q.next != null && q.linenum != m){
 				q = q.next;
 			}
 			while(m <= n){
-				if(q.linenum <= size){
-					if(q.data != null){
-						System.out.println(q.linenum + " " + q.data);
-					}
+				if(q != null){
+					System.out.println(q.linenum + " " + q.data);
 					q = q.next;
-					m++;
 				}else{
-					System.out.println("Invalid line number for $print command");
+					System.out.println(m + " **This line does not exist.");
 					break;
 				}
+				m++;
 			}
 		}else {
 			System.out.println("The first parameter for $print must be smaller than or equal to the second.");
@@ -122,17 +120,16 @@ public class LinkedList {
 		return current;
 	}
 	
-	public static void Search(Node n, String word, int size){
+	public static void Search(Node n, String word){
 		
-		while(n.linenum <= size  ){
+		while(n != null ){
 			if(n.data.indexOf(word) != -1){
 				System.out.println("found word on line " + n.linenum);
 				break;
-			}else if(n.linenum < size ){
-				n = n.next;
-			}else{
-				System.out.println("The word " + word + " was not found.");
-				break;
+			}
+			n = n.next;
+			if(n == null){
+				System.out.println("Word not found.");
 			}
 		}
 	}
@@ -154,7 +151,6 @@ public class LinkedList {
             		current.next=p;
             		current=p;
             		lineNum++;
-            		//size++;
             		oneLine=indata.readLine();
             	}else {
             		Node p = new Node(lineNum , oneLine, null);
@@ -162,14 +158,11 @@ public class LinkedList {
             		current = p;
             		lineNum++;
             		oneLine = indata.readLine();
-            		//q = q.next;
             	}
 	        }
 	        current.next = q;
 	    }catch (Exception e){
 	    	System.out.println("Error input");
 	    }
-	    //return head;
-		
 	}
 }

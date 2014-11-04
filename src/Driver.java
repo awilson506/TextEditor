@@ -33,7 +33,7 @@ public class Driver {
 			line = indata.readLine();
 						
 			while(!line.equals("$done")){
-				
+				System.out.println("Please enter a command or line of text.");
 				String[] command = line.split(" ");
 				
 				if(command[0].equals("$insert")){
@@ -51,7 +51,7 @@ public class Driver {
 					
 					if(command.length == 3){
 						size = LinkedList.Size(head);
-						LinkedList.PrintList(Integer.parseInt(command[1]), Integer.parseInt(command[2]), head.next, size);
+						LinkedList.PrintList(Integer.parseInt(command[1]), Integer.parseInt(command[2]), head.next);
 					}else if(command.length == 1){
 						LinkedList.PrintList(head.next);
 					}else {
@@ -65,12 +65,10 @@ public class Driver {
 					size = LinkedList.Size(head);
 					current = LinkedList.SetLine(Integer.parseInt(command[1]), head, size);
 					if(current.data != null){
-						LinkedList.PrintList(Integer.parseInt(command[1]) -1, Integer.parseInt(command[1]) + 1, head, size);
+						LinkedList.PrintList(Integer.parseInt(command[1]) -1, Integer.parseInt(command[1]) + 1, head);
 					}
 				}else if(command[0].equals("$search")){
-					size = LinkedList.Size(head);
-					//System.out.println("searching.." + head.data);
-					LinkedList.Search(head.next, command[1], size);
+					LinkedList.Search(head.next, command[1]);
 					
 				}else {
 					System.out.println(command[0] + " is not a valid command.");
