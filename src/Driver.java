@@ -8,8 +8,10 @@ public class Driver {
 		
 		String line;
 		Node head = new Node();
-		Node current = new Node(0, null, null);
+		Node current = new Node(1, null, null);
 		int size;
+		System.out.println("The current line is: " + current.linenum);
+		System.out.println("Please enter a command or line of text.");
 		
 		try{
 			BufferedReader indata = new BufferedReader(new InputStreamReader(System.in));
@@ -55,6 +57,7 @@ public class Driver {
 				}else {
 					System.out.println("The command you entered is not valid.");
 				}
+				System.out.println("The current line is: " + current.linenum);
 				System.out.println("Please enter a command or line of text.");
 				line = indata.readLine();
 			}

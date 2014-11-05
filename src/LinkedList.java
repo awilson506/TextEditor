@@ -137,7 +137,7 @@ public class LinkedList {
 	public static void InsertNodes(Node current) {
 		
 		String oneLine;
-		int lineNum = current.linenum +1;
+		int lineNum = current.linenum;
 		Node q = current.next;
 		System.out.println("Enter text, enter $ to terminate)");
 	    try
