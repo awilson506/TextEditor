@@ -4,23 +4,6 @@ import java.io.InputStreamReader;
 
 public class Driver {
 
-	public static void printInstructions(){
-		String[] instructions = new String[]{
-				"The following commands are accepted to this text editor simulator.",
-				"$insert string_data",
-				"$delete m n",
-				"$print m n",
-				"$line m",
-				"$search string_data",
-				"$done",
-				"Parameters m and n are integers for which you would like to inclusively print or delete"
-		};
-		
-		for(String s : instructions){
-			System.out.println(s);
-		}
-	}
-
 	public static void startEditor() {
 		
 		String line;
@@ -33,9 +16,8 @@ public class Driver {
 			line = indata.readLine();
 						
 			while(!line.equals("$done")){
-				System.out.println("Please enter a command or line of text.");
-				String[] command = line.split(" ");
 				
+				String[] command = line.split("[, ]");
 				if(command[0].equals("$insert")){
 					
 					if(current.data == null){
@@ -71,9 +53,9 @@ public class Driver {
 					LinkedList.Search(head.next, command[1]);
 					
 				}else {
-					System.out.println(command[0] + " is not a valid command.");
+					System.out.println("The command you entered is not valid.");
 				}
-				
+				System.out.println("Please enter a command or line of text.");
 				line = indata.readLine();
 			}
 			

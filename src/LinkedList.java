@@ -15,7 +15,7 @@ public class LinkedList {
 		    }
 		    String oneLine;
 		
-	    System.out.println("Enter text, enter $ to terminate)");
+	    System.out.println("Enter text, enter $ to terminate.");
 	    try
 	    {
 	        BufferedReader indata = new BufferedReader(new InputStreamReader(System.in));   
@@ -33,7 +33,7 @@ public class LinkedList {
             	}
 	        }
 	    }catch (Exception e){
-	    	System.out.println("Error input");
+	    	System.out.println("Error -- " + e.toString());
 	    }
 	    return head;
 	    
@@ -41,7 +41,7 @@ public class LinkedList {
 
 	public static void PrintList(Node n) {
 		if(n != null){
-			System.out.println(n.linenum + " " + n.data);
+			System.out.printf("%-2d %s %n",n.linenum, n.data );
 			PrintList(n.next);
 		}
 	}
@@ -82,7 +82,7 @@ public class LinkedList {
 					q.next = p.next;
 					m++;
 				}else {
-					System.out.println("Invalid line number for $delete command");
+					System.out.println("Invalid line number for $delete command.");
 					break;
 				}
 			}
@@ -124,12 +124,12 @@ public class LinkedList {
 		
 		while(n != null ){
 			if(n.data.indexOf(word) != -1){
-				System.out.println("found word on line " + n.linenum);
+				System.out.println("The word " + word + " was found on line " + n.linenum + ".");
 				break;
 			}
 			n = n.next;
 			if(n == null){
-				System.out.println("Word not found.");
+				System.out.println("The word " + word + " was not found.");
 			}
 		}
 	}
@@ -162,7 +162,7 @@ public class LinkedList {
 	        }
 	        current.next = q;
 	    }catch (Exception e){
-	    	System.out.println("Error input");
+	    	System.out.println("Error -- " + e.toString());
 	    }
 	}
 }
