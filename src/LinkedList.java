@@ -62,7 +62,7 @@ public class LinkedList {
 					System.out.println(q.linenum + " " + q.data);
 					q = q.next;
 				}else{
-					System.out.println(m + " **This line does not exist.");
+					System.out.println(" **The line number " + m + " does not exist.");
 					break;
 				}
 				m++;
