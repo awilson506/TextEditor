@@ -18,7 +18,7 @@ public class Driver {
 			line = indata.readLine();
 						
 			while(!line.equals("$done")){
-				
+				//loop until user enters $done
 				String[] command = line.split("[, ]");
 				if(command[0].equals("$insert")){
 					

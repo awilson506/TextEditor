@@ -5,7 +5,8 @@ import java.io.InputStreamReader;
 public class LinkedList {
 	
 	public static Node BuildList(Node head){
-		
+	//build the list for the first time
+	//take in data until the user enters a $ symbol	
 		    int lineNum=1;
 		    Node q = new Node();
 		    if(head.next == null){
@@ -40,6 +41,7 @@ public class LinkedList {
 	}
 
 	public static void PrintList(Node n) {
+		//print the whole list out
 		if(n != null){
 			System.out.printf("%-2d %s %n",n.linenum, n.data );
 			PrintList(n.next);
@@ -47,7 +49,7 @@ public class LinkedList {
 	}
 	
 	public static void PrintList(int m, int n, Node q){
-		
+		//print the section of the list out between m and n
 		if( m <= n){
 			if(m == 0){
 				m++;
@@ -71,6 +73,7 @@ public class LinkedList {
 	}
 	
 	public static Node DeleteNode(int m, int n, Node q){
+		//delete the node(s) between m and n
 		if(m <= n){
 			Node p = new Node();
 			while(q.next != null && q.linenum != m - 1){
@@ -93,6 +96,7 @@ public class LinkedList {
 	}
 	
 	public static void CleanLine(int size, Node n){
+		//clean up the line numbers after node(s) have been deleted
 		int line = n.linenum;
 		while(line < size){
 			line++;
@@ -101,6 +105,7 @@ public class LinkedList {
 		}
 	}
 	public static int Size(Node n){
+		//return the quantity of nodes on the current list
 		int count = 0;
 		while(n.next != null){
 			count++;
@@ -110,6 +115,7 @@ public class LinkedList {
 	}
 
 	public static Node SetLine(int line, Node current, int size) {
+		//set the current line(node) within the linked list
 		if(line <= size){
 			while(current.linenum != line ){
 				current = current.next;
@@ -121,7 +127,7 @@ public class LinkedList {
 	}
 	
 	public static void Search(Node n, String word){
-		
+		//search the whole linked list for the first instance of 'word'
 		while(n != null ){
 			if(n.data.indexOf(word) != -1){
 				System.out.println("The word " + word + " was found on line " + n.linenum + ".");
@@ -135,7 +141,7 @@ public class LinkedList {
 	}
 
 	public static void InsertNodes(Node current) {
-		
+		//insert lines of text after the list has been build and $line has been set
 		String oneLine;
 		int lineNum = current.linenum;
 		Node q = current.next;
