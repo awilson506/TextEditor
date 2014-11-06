@@ -145,7 +145,7 @@ public class LinkedList {
 		String oneLine;
 		int lineNum = current.linenum;
 		Node q = current.next;
-		System.out.println("Enter text, enter $ to terminate)");
+		System.out.println("Enter text, enter $ to terminate.");
 	    try
 	    {
 	        BufferedReader indata = new BufferedReader(new InputStreamReader(System.in));   
